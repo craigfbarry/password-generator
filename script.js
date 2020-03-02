@@ -8,9 +8,11 @@ function writePassword() {
 
   var capsRequired = document.getElementById("#capitalChar").value;
   var specRequired = document.getElementById("#specialChar").value;
-
   var pwdLength = document.getElementById("#passwordLength").value;
        
+//****notes***
+// smaple code var password=""; initialize before loop
+//            password = password.concat(array??)
 
 
 
