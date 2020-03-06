@@ -34,7 +34,9 @@ console.log(pwdLength.value);
 
 // Validate password length as requirement is 8-128 characters
 // Use String.fromCharCode() to use UTF (range lower case 97-122)
-if (pwdLength.value>7 && pwdLength.value<129)                      
+if ((pwdLength.value>7 && pwdLength.value<129)  && 
+(lowerRequired.checked||numRequired.checked||specRequired.checked||capsRequired.checked === true  )         )          
+    
     {
 
     for (i=0;i<pwdLength.value;i++){
@@ -64,7 +66,8 @@ if (pwdLength.value>7 && pwdLength.value<129)
    
 
 else {
-    console.log("range invalid");    
+    console.log("range invalid");   
+    document.getElementById("password").textContent= "Invalid input"; 
     }
 
 //****notes***
