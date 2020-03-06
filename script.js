@@ -14,12 +14,31 @@ var pwdReq = {
 
 pwdReq.lower = document.querySelector("#lowerChar");
 pwdReq.number = document.querySelector("#numeral");
-pwdReq.caps = document.querySelector("#capitalChar");
+//pwdReq.caps = document.querySelector("#capitalChar");
 pwdReq.special = document.querySelector("#specialChar");
 pwdReq.pwdLength = document.querySelector("#passwordLength");
 
 //Using an array for special characters as they are not continuous in UTF
 var specialChar =["!","@","#","$","%","^","&","*","(",")"];
+
+
+var criteria  = ["Do you require capitals y/n?","Do you require lower case y/n?"];
+var i=0;
+function question() {
+    if (i < criteria[0].length) {
+      document.getElementById("caps").innerHTML += criteria[0].charAt(i);
+      i++;
+      setTimeout(question, 50);
+    }
+    else {
+        document.getElementById("caps").innerHTML += '<input type="text" id="capitalChar">'
+        pwdReq.caps = document.querySelector("#capitalChar");
+        console.log(pwdReq.caps.value);
+    }
+  }
+  
+
+question();
 
 
 // Write password to the #password input 
@@ -37,12 +56,10 @@ if (pwdReq.pwdLength.value<8 || pwdReq.pwdLength.value>128)
         document.getElementById("password").textContent= "Invalid Range";
     }
 
-else if   (pwdReq.caps.checked === false && pwdReq.lower.checked === false && pwdReq.number.checked === false && pwdReq.special.checked === false)
+else if (pwdReq.caps.checked === false && pwdReq.lower.checked === false && pwdReq.number.checked === false && pwdReq.special.checked === false)
     {  
        document.getElementById("password").textContent= "No Character type selected"; 
     }
-   
-
 
 else {
    // Use String.fromCharCode() to use UTF (range lower case 97-122)
