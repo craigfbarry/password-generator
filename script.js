@@ -1,8 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-//var password = {
-
 var pwdReq = {
     lower         :"",
     number        :"",
@@ -14,7 +11,7 @@ var pwdReq = {
 
 pwdReq.lower = document.querySelector("#lowerChar");
 pwdReq.number = document.querySelector("#numeral");
-//pwdReq.caps = document.querySelector("#capitalChar");
+pwdReq.caps = document.querySelector("#capitalChar");
 pwdReq.special = document.querySelector("#specialChar");
 pwdReq.pwdLength = document.querySelector("#passwordLength");
 
@@ -22,23 +19,23 @@ pwdReq.pwdLength = document.querySelector("#passwordLength");
 var specialChar =["!","@","#","$","%","^","&","*","(",")"];
 
 
-var criteria  = ["Do you require capitals y/n?","Do you require lower case y/n?"];
-var i=0;
-function question() {
-    if (i < criteria[0].length) {
-      document.getElementById("caps").innerHTML += criteria[0].charAt(i);
-      i++;
-      setTimeout(question, 50);
-    }
-    else {
-        document.getElementById("caps").innerHTML += '<input type="text" id="capitalChar">'
-        pwdReq.caps = document.querySelector("#capitalChar");
-        console.log(pwdReq.caps.value);
-    }
-  }
+//var criteria  = ["Do you require capitals y/n?","Do you require lower case y/n?"];
+//var i=0;
+//function question() {
+//    if (i < criteria[0].length) {
+//      document.getElementById("caps").innerHTML += criteria[0].charAt(i);
+//      i++;
+//      setTimeout(question, 50);
+//    }
+//    else {
+//        document.getElementById("caps").innerHTML += '<input type="text" id="capitalChar">'
+//        pwdReq.caps = document.querySelector("#capitalChar");
+//        console.log(pwdReq.caps.value);
+//    }
+//  }
   
 
-question();
+//question();
 
 
 // Write password to the #password input 
@@ -62,7 +59,7 @@ else if (pwdReq.caps.checked === false && pwdReq.lower.checked === false && pwdR
     }
 
 else {
-   // Use String.fromCharCode() to use UTF (range lower case 97-122)
+   // call password generate function
    generatePassword();
     
     }

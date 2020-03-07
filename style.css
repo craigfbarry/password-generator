@@ -54,6 +54,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  /*background-color:rgb(52, 190, 10);*/
 }
 
 .card-footer {
@@ -102,6 +103,7 @@ button[disabled] {
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
+  
   appearance: none;
   border: none;
   display: block;
