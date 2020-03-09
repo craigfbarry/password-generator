@@ -19,7 +19,7 @@ Here is the URL of the deployed site
 https://craigfbarry.github.io/password-generator/
 
 
-
+![password generator submitted](./Assets/password-gen.png)
 
 
 The following image demonstrates the application functionality:
