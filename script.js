@@ -1,44 +1,23 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var pwdReq = {
-    lower         :"",
-    number        :"",
-    caps          :"",
-    special       :"",
-    pwdLength     :"",
+    lower         :document.querySelector("#lowerChar"),
+    number        :document.querySelector("#numeral"),
+    caps          :document.querySelector("#capitalChar"),
+    special       :document.querySelector("#specialChar"),
+    pwdLength     :document.querySelector("#passwordLength"),
    
     };
 
-pwdReq.lower = document.querySelector("#lowerChar");
-pwdReq.number = document.querySelector("#numeral");
-pwdReq.caps = document.querySelector("#capitalChar");
-pwdReq.special = document.querySelector("#specialChar");
-pwdReq.pwdLength = document.querySelector("#passwordLength");
-
 //Using an array for special characters as they are not continuous in UTF
 var specialChar =["!","@","#","$","%","^","&","*","(",")"];
+var passwordOutput = document.getElementById("password");
+var j = 0;
+var speed = 50;
 
 
 
-
-//function question() {
-//    if (i < criteria[0].length) {
-//      document.getElementById("caps").innerHTML += criteria[0].charAt(i);
-//      i++;
-//      setTimeout(question, 50);
-//    }
-//    else {
-//        document.getElementById("caps").innerHTML += '<input type="text" id="capitalChar">'
-//        pwdReq.caps = document.querySelector("#capitalChar");
-//        console.log(pwdReq.caps.value);
-//    }
-//  }
-  
-
-//question();
-
-
-// Write password to the #password input 
+// Pseudorandom number generator
 function getRandom(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
@@ -60,14 +39,15 @@ else if (pwdReq.pwdLength.value<8 || pwdReq.pwdLength.value>128)
 
 else {
    // call password generate function
-   generatePassword();
 
-    
+    //var thing = generatePassword();  
+    //console.log(thing); 
+    passwordOutput.textContent = generatePassword();
     }
 }
 
 function generatePassword() {
-  var counter = 0; 
+ 
 do {
     var passwordString = "";
     var validate = [false,false,false,false];
@@ -96,18 +76,27 @@ do {
 
         else {(i--);}
     }
-     counter++
+     
 } while (pwdReq.caps.checked != validate[0] || pwdReq.lower.checked != validate[1] || pwdReq.number.checked != validate[2] || pwdReq.special.checked != validate[3]);
     
-    console.log(counter);
-    console.log(validate);
-    console.log(pwdReq.caps.checked);
-    console.log(pwdReq.lower.checked);
-    console.log(pwdReq.number.checked);
-    console.log(pwdReq.special.checked);
-    console.log(passwordString);
-    document.getElementById("password").textContent= passwordString;
+    
+    return passwordString
+    
 }
+
+function typeWriter(txt){
+    console.log(txt);
+    if (j < txt.length) {
+        passwordOutput.textContent += txt.charAt(j);
+        j++;
+        setTimeout(typeWriter, speed);
+      }
+
+}
+
+
+
+
 
 
 //****notes***
