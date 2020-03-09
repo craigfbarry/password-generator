@@ -12,8 +12,7 @@ var pwdReq = {
 //Using an array for special characters as they are not continuous in UTF
 var specialChar =["!","@","#","$","%","^","&","*","(",")"];
 var passwordOutput = document.getElementById("password");
-var j = 0;
-var speed = 50;
+
 
 
 
@@ -21,6 +20,9 @@ var speed = 50;
 function getRandom(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+
+
+
 
 function writePassword() {
 
@@ -39,10 +41,9 @@ else if (pwdReq.pwdLength.value<8 || pwdReq.pwdLength.value>128)
 
 else {
    // call password generate function
-
-    //var thing = generatePassword();  
-    //console.log(thing); 
-    passwordOutput.textContent = generatePassword();
+    
+     passwordOutput.textContent = generatePassword();
+    
     }
 }
 
@@ -78,25 +79,10 @@ do {
     }
      
 } while (pwdReq.caps.checked != validate[0] || pwdReq.lower.checked != validate[1] || pwdReq.number.checked != validate[2] || pwdReq.special.checked != validate[3]);
-    
-    
-    return passwordString
+      
+    return passwordString;
     
 }
-
-function typeWriter(txt){
-    console.log(txt);
-    if (j < txt.length) {
-        passwordOutput.textContent += txt.charAt(j);
-        j++;
-        setTimeout(typeWriter, speed);
-      }
-
-}
-
-
-
-
 
 
 //****notes***
