@@ -1,54 +1,28 @@
 ﻿# 03 JavaScript: Password Generator
 
-Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This site uses javascript to create a random password.
 
-If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
+There are certain criteria that need to be met. The length of the password needs to be a minimum of 8 characters.
+The maximum that the password can be is 128 characters. The site validates this data and returns an error to the user.
 
-## User Story
+There are prompts for user password character type criteria. This should include upper case, lower case, numerals and special characters. If no input character type this is validated and again an error is sent to the page.
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+Once the user hits submit, these minimum requirements are checked. The code will then call a function to generate a password.
 
-## Acceptance Criteria
+The password is utilizes a do while loop as it must be completed at least once. Password is initialized to be blank.
+Inside the loop the code randomizes a number between 1 and 4. This number determines which character type to add to the password string. There is a check to see if the character type was selected by the user before adding to the string. If these criteria are not met nothing is added to the string and the increment counter needs to be reduced.
 
-```
-GIVEN I need a new, secure password
+Finally there is a validation required. An array is set set up with false values. When a character type is selected, the corresponding array value is set true. If one of these is false after the password is created and the user selected the character type, then code will repeat the password generation. If it is validated then at this point the password can be sent as an output to the screen.
 
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
 
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
+Here is the URL of the deployed site
+https://craigfbarry.github.io/password-generator/
 
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
 
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
 
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
 
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
 
 The following image demonstrates the application functionality:
 
 ![password generator demo](./Assets/03-javascript-homework-demo.png)
 
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

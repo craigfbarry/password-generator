@@ -19,8 +19,8 @@ pwdReq.pwdLength = document.querySelector("#passwordLength");
 var specialChar =["!","@","#","$","%","^","&","*","(",")"];
 
 
-//var criteria  = ["Do you require capitals y/n?","Do you require lower case y/n?"];
-//var i=0;
+
+
 //function question() {
 //    if (i < criteria[0].length) {
 //      document.getElementById("caps").innerHTML += criteria[0].charAt(i);
@@ -48,19 +48,20 @@ function writePassword() {
 // Validate password length as requirement is 8-128 characters
 // And validate at least on character type selected
 
-if (pwdReq.pwdLength.value<8 || pwdReq.pwdLength.value>128)     
-    {
-        document.getElementById("password").textContent= "Invalid Range";
-    }
-
-else if (pwdReq.caps.checked === false && pwdReq.lower.checked === false && pwdReq.number.checked === false && pwdReq.special.checked === false)
+if (pwdReq.caps.checked === false && pwdReq.lower.checked === false && pwdReq.number.checked === false && pwdReq.special.checked === false)
     {  
        document.getElementById("password").textContent= "No Character type selected"; 
+    }
+
+else if (pwdReq.pwdLength.value<8 || pwdReq.pwdLength.value>128)     
+    {
+        document.getElementById("password").textContent= "Invalid Range";
     }
 
 else {
    // call password generate function
    generatePassword();
+
     
     }
 }
@@ -110,16 +111,6 @@ do {
 
 
 //****notes***
-
-
-
-
-    //var password = generatePassword();
-    //var passwordText = document.querySelector("#password");
-
-    //passwordText.value = password;
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
